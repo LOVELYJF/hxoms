@@ -1,0 +1,53 @@
+server:
+  port: 5999
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    druid:
+
+      username: hxoms
+      password: Hxyz-2020#
+      url: jdbc:mysql://www.24hbs.cn:3306/hxoms?useUnicode=true&allowMultiQueries=true&characterEncoding=utf8
+      driver-class-name: com.mysql.jdbc.Driver
+
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      test-while-idle: true
+      validation-query: select 1
+      filters: stat,log4j
+
+
+
+logging:
+  config: classpath:log4j2.xml
+
+
+
+defulttargetdatasource:
+#  datasourceId: gz_orcal
+#  username: root
+#  password: 123456
+#  url: jdbc:mysql://127.0.0.1:3307/hxoim?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+#  databasetype: com.mysql.jdbc.Driver
+#  code: gz_orcal_master
+  datasourceId: gz_orcal
+  username: newhxdba
+  password: 123456
+  url: jdbc:oracle:thin:@127.0.0.1:1521:orcl
+  databasetype: oracle.jdbc.driver.OracleDriver
+  code: gz_orcal_master
+
+mybatis-plus:
+  configuration:
+    cache-enabled: false
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      table-underline: true
+      id-type: assign_uuid
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+

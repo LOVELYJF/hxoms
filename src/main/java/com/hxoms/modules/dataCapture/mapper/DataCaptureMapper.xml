@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxoms.modules.dataCapture.mapper.DataCaptureMapper">
+
+    <!-- A01 表  -->
+
+    <select id="getMasterA01" resultType="com.hxoms.common.LowerKeyMapTest">
+        select
+         a0100,
+         a0101,
+         a0102,
+         a0104,
+         a0107,
+         a0111a,
+         a0111b,
+         a0114a
+        FROM A01
+    </select>
+
+    <select id="getTargetA01" resultType="com.hxoms.common.LowerKeyMapTest">
+        select
+        a0100,
+        a0101,
+        a0102,
+        a0104,
+        a0107,
+        a0111a,
+        a0111b,
+        a0114a
+        FROM A01
+    </select>
+
+    <update id="updateMasterA01">
+        <foreach collection="list" item="item" index="index" separator=";">
+            update A01
+            set
+            a0101 = #{item.a0101},
+            a0102 = #{item.a0102},
+            a0104 = #{item.a0104},
+            a0107 = #{item.a0107},
+            a0111a = #{item.a0111a},
+            a0111b = #{item.a0111b},
+            a0114a = #{item.a0114a}
+            where a0100 = #{item.a0100}
+        </foreach>
+    </update>
+
+    <insert id="insertMasterA01">
+        insert into A01 (
+        a0100,
+        a0101,
+        a0102,
+        a0104,
+        a0107,
+        a0111a,
+        a0111b,
+        a0114a
+        )
+        VALUES
+        <foreach collection="list" index="index" item="item" separator=",">
+            (
+            #{item.a0100},
+            #{item.a0101},
+            #{item.a0102},
+            #{item.a0104},
+            #{item.a0107},
+            #{item.a0111a},
+            #{item.a0111b},
+            #{item.a0114a}
+            )
+        </foreach>
+    </insert>
+
+   <!-- A02 表  -->
+
+    <select id="getMasterA02" resultType="com.hxoms.common.LowerKeyMapTest">
+        select
+        a0200,
+        a0100,
+        a0215a
+        FROM A02
+    </select>
+
+    <select id="getTargetA02" resultType="com.hxoms.common.LowerKeyMapTest">
+        select
+        a0200,
+        a0100,
+        a0215a
+        FROM A02
+    </select>
+
+    <update id="updateMasterA02">
+        <foreach collection="list" item="item" index="index" separator=";">
+            update A02
+            set
+
+            a0215a = #{item.a0215a}
+
+            where a0100 = #{item.a0100}
+        </foreach>
+    </update>
+
+    <insert id="insertMasterA02">
+        insert into A02 (
+        a0200,
+        a0100,
+        a0215a
+        )
+        VALUES
+        <foreach collection="list" index="index" item="item" separator=",">
+            (
+            #{item.a0200},
+            #{item.a0100},
+            #{item.a0215a}
+
+            )
+        </foreach>
+    </insert>
+
+
+
+</mapper>
